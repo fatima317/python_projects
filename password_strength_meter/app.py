@@ -43,25 +43,18 @@ if password:
     else:
         feedback.append("Password should contain at least one special character (@, $, !, %, *, ?, &).")
     
-    # score feedback
-    if score == 0:
-        feedback.append("Password is very weak.")
-    elif score == 1:
-        feedback.append("Password is weak.")
-    elif score == 2:
-        feedback.append("Password is moderate.")
-    elif score == 3:
-        feedback.append("Password is strong.")
-    elif score == 4:
-        feedback.append("Password is very strong.")
+    #score feedback
+    if score == 5:
+        st.success("Your password is strong!")
+    elif score >= 3:
+        st.warning("Your password is moderate. Consider making it stronger.")
     else:
-        feedback.append("Password is extremely strong.")
-    
+        st.error("Your password is weak. Please make it stronger.")
+
     # improvement tips
-    st.write("### Improvement Tips:")
     for tip in feedback:
         st.write(tip)
-
+        
 else:
     st.info("Please enter a password to check its strength.")
 
